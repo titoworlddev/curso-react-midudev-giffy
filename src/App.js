@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import getGifs from './services/getGifs';
+
 import './App.css';
 
-function App() {
+export default function App() {
+  // El useState es un hook que nos permite manejar el estado de un componente
+  // en React. El primer valor que retorna es el estado actual y el segundo
+  // valor es una función que nos permite actualizar el estado.
+  const [gifs, setGifs] = useState([]);
+
+  // El useEffect se ejecuta cuando el componente se renderiza por primera vez
+  // y cuando el componente se actualiza
+  useEffect(() => {
+    getGifs({ keyword: 'rick' }).then((gifs) => setGifs(gifs));
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="App-content">
+        {gifs.map((singleGif) => (
+          <img src={singleGif} alt="Gif" />
+        ))}
+        <button onClick={() => {}}>Cambiar gifs</button>
+      </section>
     </div>
   );
 }
-
-export default App;
