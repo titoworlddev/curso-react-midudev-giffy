@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Gif from './Gif';
 import getGifs from '../services/getGifs';
 
-export default function ListOfGifs({ keyword }) {
+export default function ListOfGifs({ params }) {
+  const { keyword } = params;
+
   // El useState es un hook que nos permite manejar el estado de un componente
   // en React. El primer valor que retorna es el estado actual y el segundo
   // valor es una función que nos permite actualizar el estado.
@@ -17,7 +19,11 @@ export default function ListOfGifs({ keyword }) {
   // dependencias, el useEffect se ejecutará cada vez que una de las dependencias
   // cambie de valor
 
-  return gifs.map(({ id, title, url }) => (
-    <Gif id={id} key={id} title={title} url={url} />
-  ));
+  return (
+    <>
+      {gifs.map(({ id, title, url }) => (
+        <Gif id={id} key={id} title={title} url={url} />
+      ))}
+    </>
+  );
 }
