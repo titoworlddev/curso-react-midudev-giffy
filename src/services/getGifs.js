@@ -1,26 +1,22 @@
-const apiKey = 'XmAo111an2ALGM4JKvRUhc9lvFeGkRhg';
+const apiKey = 'dIJrma20pSU6ymMwWnDbiaT7NFHeAGVa'
 
-// export default sirve para exportar una función por defecto, es decir, si
-// importamos este archivo en otro, no necesitamos especificar el nombre de la
-// función que queremos importar, ya que por defecto se importará la función
-// getGifs
-// Pero ojo, expor default solo puede ser usado una vez por archivo
-// si esxportamos alguna funcion mas dentro del mismo archivo, no podremos usar
-// export default, tendria que ser solo export
-export default async function getGifs({ keyword = 'morty' } = {}) {
-  const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=10&offset=0&rating=g&lang=en`;
+const fromApiResponseToGifs = apiResponse => {
+  const {data = []} = apiResponse
+  if (Array.isArray(data)) {
+    const gifs = data.map(image => {
+      const {images, title, id} = image
+      const { url } = images.downsized_medium
+      return { title, id, url }
+    })
+    return gifs
+  }
+  return []
+}
 
-  return await fetch(apiURL)
-    .then((res) => res.json())
-    .then((response) => {
-      const { data = [] } = response;
-      if (Array.isArray(data)) {
-        const gifs = data.map((image) => {
-          const { images, title, id } = image;
-          const { url } = images.downsized_medium;
-          return { title, id, url };
-        });
-        return gifs;
-      }
-    });
+export default function getGifs ({limit = 25, keyword = 'morty'} = {}) {
+  const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=${limit}&offset=0&rating=G&lang=en`
+
+  return fetch(apiURL)
+    .then(res => res.json())
+    .then(fromApiResponseToGifs)
 }
