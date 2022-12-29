@@ -2,4 +2,6 @@
 
 # Section
 
-Video - Custom Hooks y React Context - 00:00:00
+Video - Lazy Load, Suspense y Paginación - 00:00:00
+
+(Custom Hooks y React Context - 01:34:30 enseña sus extensiones)
