@@ -1,39 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
-import getTrendingTerms from '../../services/getTrendingTermsService';
-import Category from '../Category';
+import React, { Suspense } from 'react';
+import useNearScreen from 'hooks/useNearScreen';
+import Spinner from 'components/Spinner';
+import './styles.css';
 
-function TrendingSearches() {
-  const [trends, setTrends] = useState([]);
-
-  useEffect(function () {
-    getTrendingTerms().then(setTrends);
-  }, []);
-
-  return <Category options={trends} name="Tendencias" />;
-}
+const TrendingSearches = React.lazy(() => import('./TrendingSearches'));
 
 export default function LazyTrending() {
-  const [show, setShow] = useState(false);
-  const elementRef = useRef();
+  const { isNearScreen, fromRef } = useNearScreen({ distance: '200px' });
 
-  useEffect(function () {
-    const onChange = (entries, observer) => {
-      const el = entries[0];
-      if (el.isIntersecting) {
-        setShow(true);
-        observer.disconnect();
-      }
-    };
-
-    const observer = new IntersectionObserver(onChange, {
-      // Para que se ejecute el callback cuando el elemento se vea en pantalla pero un poco antes
-      rootMargin: '100px'
-    });
-
-    observer.observe(elementRef.current);
-
-    return () => observer.disconnect();
-  });
-
-  return <div ref={elementRef}>{show ? <TrendingSearches /> : null}</div>;
+  return (
+    <div className="LazyTrending" ref={fromRef}>
+      {isNearScreen && (
+        <Suspense fallback={<Spinner />}>
+          <TrendingSearches />
+        </Suspense>
+      )}
+    </div>
+  );
 }

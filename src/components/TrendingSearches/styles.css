@@ -1,0 +1,10 @@
+.LazyTrending {
+  min-height: 200px;
+}
+
+.LazyTrending > .Spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}

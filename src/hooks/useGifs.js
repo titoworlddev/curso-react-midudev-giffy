@@ -13,7 +13,7 @@ export function useGifs({ keyword } = { keyword: null }) {
       const keywordToUse =
         keyword || localStorage.getItem('lastKeyword') || 'random';
 
-      getGifs({ keyword: keywordToUse }).then((gifs) => {
+      getGifs({ keyword: keywordToUse }).then(gifs => {
         setGifs(gifs);
         setLoading(false);
         // guardamos la keyword en el localStorage
