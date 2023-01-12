@@ -2,7 +2,7 @@
 
 This is the project used to make the free **React** course created by midudev.
 
-In it we learn many things about React such as:
+In it I have learn many things about React such as:
 
 - Using **JavaScript** libraries
 - Create an app with **create-react-app**
