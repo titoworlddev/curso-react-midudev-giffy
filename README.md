@@ -1,6 +1,6 @@
-# 🖼️ Giffy from [midudev](https://github.com/midudev)
+# 🖼️ Giffy
 
-This is the project used to make the free **React** course created by midudev.
+This is the project used to make the free **React** course created by [midudev](https://github.com/midudev).
 
 In it I have learn many things about React such as:
 
@@ -15,3 +15,5 @@ In it I have learn many things about React such as:
 - **Login** and management of user favorites (**API** in Deno)
 - User registration with **Formik** and **React.createPortal**
 - CSS in JS and Styled Components with **Emotion**
+
+![Screenshot](screenshot.jpg)
