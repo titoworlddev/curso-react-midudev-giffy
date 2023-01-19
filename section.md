@@ -2,6 +2,6 @@
 
 # Section
 
-Video - Lazy Load, Suspense y Paginación - 01:08:51
+Video - CSS Grid, Infinite Scroll y Testing - 00:45:49 (Usando debounce)
 
 (Custom Hooks y React Context - 01:34:30 enseña sus extensiones)
