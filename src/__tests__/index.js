@@ -4,8 +4,8 @@ import App from '../App';
 
 // primer argumento es el nombre del test
 // segundo argumento es una función que contiene el test
-test('home works as expected', () => {
+test('home works as expected', async () => {
   render(<App />);
-  const linkElement = screen.getByText(/Última búsqueda/i);
-  expect(linkElement).toBeInTheDocument();
+  const gifLink = await screen.findByRole('.Gif-link');
+  expect(gifLink).toBeVisible();
 });

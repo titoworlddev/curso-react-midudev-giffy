@@ -4,8 +4,8 @@ import App from './App';
 
 // primer argumento es el nombre del test
 // segundo argumento es una función que contiene el test
-test('renders without crashing', () => {
+test('renders without crashing', async () => {
   render(<App />);
-  const linkElement = screen.getByText(/Última búsqueda/i);
-  expect(linkElement).toBeInTheDocument();
+  const title = await screen.findByText(/Última búsqueda/i);
+  expect(title).toBeInTheDocument();
 });
