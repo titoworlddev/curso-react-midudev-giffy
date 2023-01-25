@@ -2,6 +2,6 @@
 
 # Section
 
-Video - CSS Grid, Infinite Scroll y Testing - 01:09:55 (Infinity scroll conmpletado y explicando useCallback)
+Video - CSS Grid, Infinite Scroll y Testing - 01:29:20 (wait for element con Testing)
 
 (Custom Hooks y React Context - 01:34:30 enseña sus extensiones)
