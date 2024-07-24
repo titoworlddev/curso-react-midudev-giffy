@@ -34,23 +34,26 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 16px;
 }
 
 .App-results {
-  flex-shrink: 2;
+  flex-basis: 95%;
+  flex-shrink: 1;
 }
 
 .App-category {
-  margin-bottom: 25px;
+  flex-shrink: 2;
+  margin-bottom: 24px;
   width: 100%;
 }
 
-@media screen and (min-width: 640px){
-  .App-main{
+@media screen and (min-width: 640px) {
+  .App-main {
     flex-direction: initial;
   }
 
-  .App-category{
+  .App-category {
     padding: 0 2em;
     position: sticky;
     top: 0;

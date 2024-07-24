@@ -1,7 +1,3 @@
-:root {
-  --results-columns: 2;
-}
-
 .ListOfGifs {
   min-height: 100vh;
   display: grid;
@@ -9,22 +5,4 @@
   grid-template-rows: masonry;
   gap: 0 16px;
   align-items: center;
-}
-
-.ListOfGifs-item {
-  background-color: #eee;
-  display: inline-block;
-  width: 100%;
-}
-
-@media (min-width: 600px) {
-  :root {
-    --results-columns: 3;
-  }
-}
-
-@media (min-width: 800px) {
-  :root {
-    --results-columns: 4;
-  }
 }

@@ -30,6 +30,7 @@ export default function Home() {
           value={keyword}
         />
       </form>
+
       <div className="App-main">
         <div className="App-results">
           <h3 className="App-title">Última búsqueda</h3>
